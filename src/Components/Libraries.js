@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
+import Library from './Library';
+import Customers from './Customers'
+
 class Libraries extends Component {
 
 	constructor(){
@@ -47,7 +50,8 @@ class Libraries extends Component {
     return (
 			<div>
 				THIS IS A LIBBRARY
-				
+				<Customers />
+				<Library />
 
 			</div>
     );
