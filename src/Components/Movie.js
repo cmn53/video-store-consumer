@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 
 class Movie extends Component {
   static propTypes = {
+		id: PropTypes.number,
     title: PropTypes.string,
     overview: PropTypes.string,
-    release_date: PropTypes.object,
+    release_date: PropTypes.string,
+		image_url: PropTypes.string,
     inventory: PropTypes.number
   }
 
