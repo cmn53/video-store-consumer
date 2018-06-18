@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 class Customer extends Component {
   static propTypes = {
+		id: PropTypes.number,
     name: PropTypes.string,
     registered_at: PropTypes.object,
     address: PropTypes.string,
