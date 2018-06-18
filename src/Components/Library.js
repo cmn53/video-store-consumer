@@ -29,7 +29,11 @@ class Library extends Component {
 
   render() {
     const movies = this.state.movies.map((movie, index) => {
-      return <Movie movieData={movie} key={index} />
+      return <Movie
+				movieData={movie}
+				key={index}
+				callbackFunc={this.selectMovie}
+				/>
     })
     console.log(movies);
     return (
