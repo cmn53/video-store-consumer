@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Customers from './Customers';
 import Library from './Library';
 import SearchForm from './SearchForm';
+import SearchResults from './SearchResults';
 
 const Routes = () => (
 	<Router>
@@ -44,7 +45,8 @@ const Home = () => {
 }
 
 const onSearch = (query) => {
-	console.log("IN THE SEARCH");
+	console.log(query);
+	return ( <SearchResults query={query}/> );
 }
 
 export default Routes;

@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 
 import Library from './Library';
-import Customers from './Customers'
+import Customers from './Customers';
+import Movie from './Movie';
 
 class SearchResults extends Component {
 
@@ -18,7 +19,7 @@ class SearchResults extends Component {
 
 	componentDidMount(){
 
-		axios.get('http://localhost:3000/movies?query='+{this.props.query})
+		axios.get(`http://localhost:3000/movies?query=${this.props.query}`)
 		.then((response) => {
 
 			this.setState({
