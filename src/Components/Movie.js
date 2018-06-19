@@ -11,10 +11,13 @@ class Movie extends Component {
 		// image_url: PropTypes.string,
     // inventory: PropTypes.number
   }
+	onMovieClick = () => {
+		this.props.onClickCallback(this.props.movieData);
+	}
 
   render() {
     return (
-      <div>
+      <div onClick={this.onMovieClick}>
         <h2>{this.props.movieData.title}</h2>
         <img src={this.props.movieData.image_url} alt="movie_poster"/>
         <h3>{this.props.movieData.overview}</h3>
