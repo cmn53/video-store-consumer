@@ -12,7 +12,17 @@ class RentalFrom extends Component {
 	onFormSubmit = (event) => {
 		event.preventDefault();
 		console.log("submitted form");
-		console.log(this.props.customer);
+		const custID = this.props.customer.id;
+		const movieTitle = this.props.movie.title;
+		const movieID = this.props.movie.id;
+
+		axios.post(`http://localhost:3000/rentals/${movieTitle}/check-out?customer_id=${custID}&due_date=2018-08-08`)
+		.then((response) => {
+			console.log(response.data);
+		})
+		.catch((error) => {
+			console.log(error);
+		})
 	}
 
 	render() {
