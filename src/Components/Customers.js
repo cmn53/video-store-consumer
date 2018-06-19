@@ -15,7 +15,7 @@ class Customers extends Component {
 
 	componentDidMount(){
 
-		axios.get('http://localhost:3001/customers')
+		axios.get('http://localhost:3000/customers')
 		.then((response) => {
 			console.log(response.data);
 			this.setState({

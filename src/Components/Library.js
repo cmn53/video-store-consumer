@@ -15,7 +15,7 @@ class Library extends Component {
 
   componentDidMount(){
 
-    axios.get('http://localhost:3001/movies')
+    axios.get('http://localhost:3000/movies')
     .then((response) => {
       console.log(response.data);
       this.setState({

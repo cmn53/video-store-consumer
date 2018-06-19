@@ -1,44 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import axios from 'axios';
-
-import Library from './Library';
-import Customers from './Customers';
 import Movie from './Movie';
 
 class SearchResults extends Component {
-
-	constructor(){
-		super();
-
-		this.state = {
-			results: []
-		};
-
+	static propTypes = {
+		results: PropTypes.array.isRequired
 	}
-
-	componentDidMount(){
-
-		axios.get(`http://localhost:3000/movies?query=${this.props.query}`)
-		.then((response) => {
-
-			this.setState({
-				results: response.data
-			});
-
-		})
-		.catch((error) => {
-			console.log(error);
-		});
-	}
-
 
   render() {
-			const searchMovies = this.state.results.map((movie, index) => {
+			const searchMovies = this.props.results.map((movie, index) => {
 				return <Movie
 					movieData={movie}
 					key={index}
-					callbackFunc={this.addToLib}
 				/>
 			});
     return (

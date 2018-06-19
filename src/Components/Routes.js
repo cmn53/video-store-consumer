@@ -2,8 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Customers from './Customers';
 import Library from './Library';
-import SearchForm from './SearchForm';
-import SearchResults from './SearchResults';
+import Search from './Search';
 
 const Routes = () => (
 	<Router>
@@ -26,10 +25,7 @@ const Routes = () => (
 			<hr />
 
 			<Route exact path="/" component={Home} />
-			<Route
-				path="/search"
-				component={ (props) => <SearchForm onSearchCallback={onSearch} />}
-			/>
+			<Route path="/search" component={Search} />
 			<Route path="/library" component={Library} />
 			<Route path="/customers" component={Customers} />
 		</div>
@@ -42,11 +38,6 @@ const Home = () => {
 			<h1>Welcome</h1>
 		</div>
 	);
-}
-
-const onSearch = (query) => {
-	console.log(query);
-	return ( <SearchResults query={query}/> );
 }
 
 export default Routes;
