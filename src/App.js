@@ -4,13 +4,15 @@ import './App.css';
 
 import Routes from './Components/Routes';
 import RentalForm from './Components/RentalForm';
+import Status from './Components/Status';
 
 class App extends Component {
 	constructor() {
 		super();
 		this.state = {
 			customer: {},
-			movie: {}
+			movie: {},
+			status: {}
 		}
 	}
 
@@ -26,6 +28,10 @@ class App extends Component {
 		this.setState(updatedState);
 	}
 
+	updateStatus = (message, type) => {
+		this.setState({status: {message: message, type: type}})
+	}
+
   render() {
     return (
       <div className="App">
@@ -34,8 +40,12 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
 
-				<RentalForm customer={this.state.customer} movie={this.state.movie}/>
-				<Routes onClickCallback={this.updateMovie} onClickCustomer={this.updateCustomer}/>
+				<Status
+					message={this.state.status.message}
+					type={this.state.status.type}
+				/>
+				<RentalForm customer={this.state.customer} movie={this.state.movie} updateStatusCallback={this.updateStatus}/>
+				<Routes onClickCallback={this.updateMovie} onClickCustomer={this.updateCustomer} updateStatusCallback={this.updateStatus}/>
 
       </div>
     );

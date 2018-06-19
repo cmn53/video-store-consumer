@@ -20,10 +20,12 @@ class Search extends Component {
 			this.setState({
 				results: response.data
 			});
+      this.props.updateStatusCallback("Successfully loaded search results", "success");
 
 		})
 		.catch((error) => {
 			console.log(error);
+      this.props.updateStatusCallback("Failed to load search results", "failure");
 		});
   }
 
@@ -31,7 +33,7 @@ class Search extends Component {
     return (
       <div>
         <SearchForm onSearchCallback={this.onSearch}/>
-        <SearchResults results={this.state.results}/>
+        <SearchResults results={this.state.results} updateStatusCallback={this.props.updateStatusCallback}/>
       </div>
     );
   }

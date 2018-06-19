@@ -16,9 +16,11 @@ class SearchResults extends Component {
 			"http://localhost:3000/movies?" + `${paramsString}`)
 		.then((response) => {
 			console.log(response.data);
+			this.props.updateStatusCallback(`Successfully added ${params.title} to the rental library`, "success");
 		})
 		.catch((error) => {
 			console.log(error.messages);
+			this.props.updateStatusCallback("Failed to add movie to the rental library", "failure");
 		})
 	}
 

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import Movie from './Movie';
 
+
 class RentalFrom extends Component {
 	static propTypes = {
 		customer: PropTypes.object,
@@ -19,9 +20,11 @@ class RentalFrom extends Component {
 		axios.post(`http://localhost:3000/rentals/${movieTitle}/check-out?customer_id=${custID}&due_date=2018-08-08`)
 		.then((response) => {
 			console.log(response.data);
+			this.props.updateStatusCallback(`Successfully checked out ${movieTitle} to ${this.props.customer.name}`, "success")
 		})
 		.catch((error) => {
 			console.log(error);
+			this.props.updateStatusCallback("Failed to check out movie", "failure")
 		})
 	}
 

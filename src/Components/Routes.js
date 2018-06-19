@@ -25,7 +25,7 @@ const Routes = (props) => (
 			<hr />
 
 			<Route exact path="/" component={Home} />
-			<Route path="/search" component={Search} />
+			<Route path="/search" render={() => <Search {...props}/>} />
 			<Route path="/library" render={() => <Library {...props}/>} />
 			<Route path="/customers" render={() => <Customers {...props}/>} />
 		</div>
