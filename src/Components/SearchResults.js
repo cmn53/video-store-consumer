@@ -9,7 +9,7 @@ class SearchResults extends Component {
 	}
 
 	addMovie = (params) => {
-		axios.post("http://localhost:3000/movies", params)
+		axios.post("http://localhost:3000/movies", JSON.stringify(params) )
 		.then((response) => {
 			console.log(response.data);
 		})
