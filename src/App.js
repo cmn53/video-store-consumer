@@ -3,8 +3,25 @@ import logo from './logo.svg';
 import './App.css';
 
 import Routes from './Components/Routes';
+import RentalForm from './Components/RentalForm';
 
 class App extends Component {
+	constructor() {
+		super();
+		this.state = {
+			customer: {},
+			movie: {}
+		}
+	}
+
+	updateMovie = (movieObj) => {
+		console.log("went up to App!");
+		this.setState({ movie: movieObj})
+	}
+
+	updateCustomer = (customerObj) => {
+		this.setState({ customer: customerObj })
+	}
   render() {
     return (
       <div className="App">
@@ -13,7 +30,8 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
 
-				<Routes />
+				<RentalForm customer={this.state.customer} movie={this.state.movie}/>
+				<Routes newProp={"some string"} updateMovieCallback={this.updateMovie} updateCustomerCallback={this.updateCustomer}/>
 
       </div>
     );

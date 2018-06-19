@@ -4,6 +4,10 @@ import axios from 'axios';
 import Movie from './Movie';
 
 class Library extends Component {
+
+	static propTypes = {
+		onClickCallback: PropTypes.func
+	}
   constructor(){
     super();
 
@@ -28,14 +32,16 @@ class Library extends Component {
   }
 
   render() {
+		console.log("in library with props: ");
+		console.log(this.props);
     const movies = this.state.movies.map((movie, index) => {
       return <Movie
 				movieData={movie}
 				key={index}
-				onClickCallback={this.rentMovie}
+				onClickCallback={this.props.onClickCallback}
 				/>
     })
-    console.log(movies);
+    console.log(this.props);
     return (
       <div>
         {movies}

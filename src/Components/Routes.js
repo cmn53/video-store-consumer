@@ -4,7 +4,7 @@ import Customers from './Customers';
 import Library from './Library';
 import Search from './Search';
 
-const Routes = () => (
+const Routes = (props) => (
 	<Router>
 		<div>
 			<ul>
@@ -26,8 +26,8 @@ const Routes = () => (
 
 			<Route exact path="/" component={Home} />
 			<Route path="/search" component={Search} />
-			<Route path="/library" component={Library} />
-			<Route path="/customers" component={Customers} />
+			<Route path="/library" render={(props) => <Library {...props} newProp={props}/>} />
+			<Route path="/customers" render={(props) => <Customers onClickCallback={props.updateCustomerCallback}/>} />
 		</div>
 	</Router>
 );
