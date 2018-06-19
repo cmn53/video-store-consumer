@@ -21,7 +21,6 @@ class Library extends Component {
 
     axios.get('http://localhost:3000/movies')
     .then((response) => {
-      console.log(response.data);
       this.setState({
         movies: response.data
       })
@@ -32,8 +31,6 @@ class Library extends Component {
   }
 
   render() {
-		console.log("in library with props: ");
-		console.log(this.props);
     const movies = this.state.movies.map((movie, index) => {
       return <Movie
 				movieData={movie}
@@ -41,7 +38,6 @@ class Library extends Component {
 				onClickCallback={this.props.onClickCallback}
 				/>
     })
-    console.log(this.props);
     return (
       <div>
         {movies}

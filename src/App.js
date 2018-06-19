@@ -15,13 +15,17 @@ class App extends Component {
 	}
 
 	updateMovie = (movieObj) => {
-		console.log("went up to App!");
-		this.setState({ movie: movieObj})
+		let updatedState = this.state;
+		updatedState["movie"] = movieObj;
+		this.setState(updatedState);
 	}
 
 	updateCustomer = (customerObj) => {
-		this.setState({ customer: customerObj })
+		let updatedState = this.state;
+		updatedState["customer"] = customerObj;
+		this.setState(updatedState);
 	}
+
   render() {
     return (
       <div className="App">
@@ -31,7 +35,7 @@ class App extends Component {
         </header>
 
 				<RentalForm customer={this.state.customer} movie={this.state.movie}/>
-				<Routes newProp={"some string"} updateMovieCallback={this.updateMovie} updateCustomerCallback={this.updateCustomer}/>
+				<Routes onClickCallback={this.updateMovie} onClickCustomer={this.updateCustomer}/>
 
       </div>
     );

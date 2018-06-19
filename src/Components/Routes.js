@@ -26,8 +26,8 @@ const Routes = (props) => (
 
 			<Route exact path="/" component={Home} />
 			<Route path="/search" component={Search} />
-			<Route path="/library" render={(props) => <Library {...props} newProp={props}/>} />
-			<Route path="/customers" render={(props) => <Customers onClickCallback={props.updateCustomerCallback}/>} />
+			<Route path="/library" render={() => <Library {...props}/>} />
+			<Route path="/customers" render={() => <Customers {...props}/>} />
 		</div>
 	</Router>
 );

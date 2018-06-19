@@ -15,9 +15,13 @@ class Customer extends Component {
     // account_credit: PropTypes.number
   }
 
+  onCustomerClick = () => {
+		this.props.onClickCallback(this.props.customerData);
+	}
+
   render() {
     return (
-      <div>
+      <div onClick={this.onCustomerClick}>
         <h2>{this.props.customerData.name}</h2>
         <h3>Registered at: {this.props.customerData.registered_at}</h3>
         <h3>Address: {this.props.customerData.address} {this.props.customerData.city}, {this.props.customerData.state} {this.props.customerData.postal_code}</h3>

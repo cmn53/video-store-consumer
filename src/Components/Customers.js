@@ -17,7 +17,6 @@ class Customers extends Component {
 
 		axios.get('http://localhost:3000/customers')
 		.then((response) => {
-			console.log(response.data);
 			this.setState({
 				customers: response.data
 			})
@@ -29,9 +28,8 @@ class Customers extends Component {
 
   render() {
     const customers = this.state.customers.map((customer, index) => {
-      return <Customer customerData={customer} key={index} />
+      return <Customer customerData={customer} key={index} onClickCallback={this.props.onClickCustomer}/>
     })
-    console.log(customers);
     return (
       <div>
         {customers}
