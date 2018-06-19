@@ -9,7 +9,11 @@ class SearchResults extends Component {
 	}
 
 	addMovie = (params) => {
-		axios.post("http://localhost:3000/movies", JSON.stringify(params) )
+		const image_url = params.image_url.split("/").pop();
+		const paramsString = `title=${params.title}&overview=${params.overview}&release_date=${params.release_date}&image_url=/${image_url}&external_id=${params.external_id}`
+
+		axios.post(
+			"http://localhost:3000/movies?" + `${paramsString}`)
 		.then((response) => {
 			console.log(response.data);
 		})

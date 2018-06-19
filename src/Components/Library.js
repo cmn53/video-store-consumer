@@ -32,7 +32,7 @@ class Library extends Component {
       return <Movie
 				movieData={movie}
 				key={index}
-				callbackFunc={this.selectMovie}
+				onClickCallback={this.rentMovie}
 				/>
     })
     console.log(movies);
