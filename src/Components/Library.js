@@ -6,7 +6,8 @@ import Movie from './Movie';
 class Library extends Component {
 
 	static propTypes = {
-		onClickCallback: PropTypes.func
+		onClickCallback: PropTypes.func,
+    updateStatusCallback: PropTypes.func
 	}
   constructor(){
     super();
@@ -24,9 +25,11 @@ class Library extends Component {
       this.setState({
         movies: response.data
       })
+      this.props.updateStatusCallback(`Loaded ${this.state.movies.length} movies`, "success")
     })
     .catch((error) => {
       console.log(error);
+      this.props.updateStatusCallback("Failed to load movies", "failure")
     });
   }
 

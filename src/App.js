@@ -29,7 +29,11 @@ class App extends Component {
 	}
 
 	updateStatus = (message, type) => {
-		this.setState({status: {message: message, type: type}})
+		this.setState({status: {message: message, type: type}});
+	}
+
+	clearRental = () => {
+		this.setState({customer: {}, movie: {}});
 	}
 
   render() {
@@ -44,9 +48,17 @@ class App extends Component {
 					message={this.state.status.message}
 					type={this.state.status.type}
 				/>
-				<RentalForm customer={this.state.customer} movie={this.state.movie} updateStatusCallback={this.updateStatus}/>
-				<Routes onClickCallback={this.updateMovie} onClickCustomer={this.updateCustomer} updateStatusCallback={this.updateStatus}/>
-
+				<RentalForm
+					customer={this.state.customer}
+					movie={this.state.movie}
+					updateStatusCallback={this.updateStatus}
+					clearRentalCallback={this.clearRental}
+				/>
+				<Routes
+					onClickCallback={this.updateMovie}
+					onClickCustomer={this.updateCustomer}
+					updateStatusCallback={this.updateStatus}
+				/>
       </div>
     );
   }

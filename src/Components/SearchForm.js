@@ -26,7 +26,6 @@ class SearchForm extends Component {
 		this.props.onSearchCallback(this.state.query);
 	}
 
-
   render() {
     return (
       <form onSubmit={this.onFormSubmit}>

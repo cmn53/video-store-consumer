@@ -3,16 +3,8 @@ import PropTypes from 'prop-types';
 
 class Customer extends Component {
   static propTypes = {
-    customerData: PropTypes.object
-		// id: PropTypes.number,
-    // name: PropTypes.string,
-    // registered_at: PropTypes.object,
-    // address: PropTypes.string,
-    // city: PropTypes.string,
-    // state: PropTypes.string,
-    // postal_code: PropTypes.string,
-    // phone: PropTypes.string,
-    // account_credit: PropTypes.number
+    customerData: PropTypes.object,
+    onClickCallback: PropTypes.func
   }
 
   onCustomerClick = () => {
@@ -22,11 +14,11 @@ class Customer extends Component {
   render() {
     return (
       <div onClick={this.onCustomerClick}>
-        <h2>{this.props.customerData.name}</h2>
-        <h3>Registered at: {this.props.customerData.registered_at}</h3>
-        <h3>Address: {this.props.customerData.address} {this.props.customerData.city}, {this.props.customerData.state} {this.props.customerData.postal_code}</h3>
-        <h3>Phone: {this.props.customerData.phone}</h3>
-        <h3>Account credit: {this.props.customerData.account_credit}</h3>
+        <h3>{this.props.customerData.name}</h3>
+        <p>Registered at: {this.props.customerData.registered_at}</p>
+        <p>Address: {this.props.customerData.address} {this.props.customerData.city}, {this.props.customerData.state} {this.props.customerData.postal_code}</p>
+        <p>Phone: {this.props.customerData.phone}</p>
+        <p>Account credit: ${this.props.customerData.account_credit.toFixed(2)}</p>
       </div>
     );
   }

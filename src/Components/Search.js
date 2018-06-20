@@ -5,6 +5,10 @@ import SearchForm from './SearchForm';
 import SearchResults from './SearchResults';
 
 class Search extends Component {
+  static propTypes = {
+    updateStatusCallback: PropTypes.func
+  }
+
   constructor() {
     super();
 
@@ -13,15 +17,15 @@ class Search extends Component {
     }
   }
 
+  componentDidMount() {
+    this.props.updateStatusCallback("", "success")
+  }
+
   onSearch = (query) => {
     axios.get(`http://localhost:3000/movies?query=${query}`)
 		.then((response) => {
-
-			this.setState({
-				results: response.data
-			});
+			this.setState({results: response.data});
       this.props.updateStatusCallback("Successfully loaded search results", "success");
-
 		})
 		.catch((error) => {
 			console.log(error);

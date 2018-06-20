@@ -4,13 +4,17 @@ import axios from 'axios';
 import Customer from './Customer';
 
 class Customers extends Component {
+  static propTypes = {
+    onClickCustomer: PropTypes.func,
+    updateStatusCallback: PropTypes.func
+  }
+
   constructor(){
 		super();
 
 		this.state = {
 			customers: []
 		};
-
 	}
 
 	componentDidMount(){
@@ -20,9 +24,11 @@ class Customers extends Component {
 			this.setState({
 				customers: response.data
 			})
+      this.props.updateStatusCallback(`Loaded ${this.state.customers.length} customers`, "success")
 		})
 		.catch((error) => {
 			console.log(error);
+      this.props.updateStatusCallback("Failed to load customers", "failure")
 		});
 	}
 
