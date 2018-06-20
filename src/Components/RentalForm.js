@@ -10,19 +10,37 @@ class RentalForm extends Component {
 		clearRentalCallback: PropTypes.func
 	}
 
-	onSubmit = () => {
-		console.log("submitted rental info");
+	onCheckOut = () => {
+		console.log("submitted rental info for check out");
 		const custID = this.props.customer.id;
 		const custName = this.props.customer.name;
 		const movieTitle = this.props.movie.title;
 
-		axios.post(`http://localhost:3000/rentals/${movieTitle}/check-out?customer_id=${custID}&due_date=2018-08-08`)
+		axios.post(`http://localhost:3000/rentals/${movieTitle}/check-out?customer_id=${custID}`)
 		.then((response) => {
 			this.props.updateStatusCallback(`Successfully checked out ${movieTitle} to ${custName}`, "success")
 		})
 		.catch((error) => {
 			console.log(error);
 			this.props.updateStatusCallback("Failed to check out movie", "failure")
+		});
+
+		this.props.clearRentalCallback();
+	}
+
+	onCheckIn = () => {
+		console.log("submitted rental info for check in");
+		const custID = this.props.customer.id;
+		const custName = this.props.customer.name;
+		const movieTitle = this.props.movie.title;
+
+		axios.post(`http://localhost:3000/rentals/${movieTitle}/return?customer_id=${custID}`)
+		.then((response) => {
+			this.props.updateStatusCallback(`Successfully checked in ${movieTitle} for ${custName}`, "success")
+		})
+		.catch((error) => {
+			console.log(error.response);
+			this.props.updateStatusCallback(`Failed to check in movie: ${error.response.data.errors.rental}`, "failure")
 		});
 
 		this.props.clearRentalCallback();
@@ -38,8 +56,11 @@ class RentalForm extends Component {
 				<div>
 					Movie: {this.props.movie.title}
 				</div>
-				<button type="button" onClick={this.onSubmit}>
-					Rent Movie
+				<button type="button" onClick={this.onCheckOut}>
+					Check Out Movie
+				</button>
+				<button type="button" onClick={this.onCheckIn}>
+					Check In Movie
 				</button>
 			</div>
 		);
