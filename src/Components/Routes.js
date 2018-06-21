@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Customers from './Customers';
 import Library from './Library';
 import Search from './Search';
+import './RentalForm.css';
 
 const Routes = (props) => (
 	<Router>

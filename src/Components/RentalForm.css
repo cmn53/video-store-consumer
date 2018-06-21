@@ -1,0 +1,18 @@
+.actions {
+  text-align: left;
+  padding: 0 35vw;
+}
+
+.actions div {
+  padding: .5vw;
+  margin: .5vw;
+}
+
+.actions button {
+  background-color: #222;
+  color: #EDC023;
+  font-weight: bold;
+  border-color: #EDC023;
+  padding: 1vw;
+  margin: 1vw;
+}

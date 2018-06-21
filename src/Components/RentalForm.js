@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import './Routes.css';
 
 class RentalForm extends Component {
 	static propTypes = {
@@ -49,7 +50,7 @@ class RentalForm extends Component {
 	render() {
 
 		return (
-			<div>
+			<div className="actions">
 				<div>
 					Customer: {this.props.customer.name}
 				</div>

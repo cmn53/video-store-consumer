@@ -1,0 +1,11 @@
+.status {
+  background-color: darkgrey;
+}
+
+.error {
+  color: darkred;
+}
+
+.success {
+  color: darkgreen;
+}
