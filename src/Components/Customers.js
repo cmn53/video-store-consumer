@@ -37,7 +37,7 @@ class Customers extends Component {
       return <Customer customerData={customer} key={index} onClickCallback={this.props.onClickCustomer}/>
     })
     return (
-      <div>
+      <div className="list customers">
         {customers}
       </div>
     );

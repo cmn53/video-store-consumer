@@ -1,0 +1,14 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  height: 80vh;
+  overflow-x: scroll;
+}
+
+.list > div {
+  border: dotted 1px #EDC023;
+  margin: 1vw;
+  padding: 1vw;
+  width: 250px;
+}
