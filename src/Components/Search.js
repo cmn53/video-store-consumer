@@ -25,7 +25,7 @@ class Search extends Component {
     axios.get(`http://localhost:3000/movies?query=${query}`)
 		.then((response) => {
 			this.setState({results: response.data});
-      this.props.updateStatusCallback("Successfully loaded search results", "success");
+      this.props.updateStatusCallback("Click movie from search results to add to library", "success");
 		})
 		.catch((error) => {
 			console.log(error);

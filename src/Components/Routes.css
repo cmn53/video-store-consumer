@@ -22,3 +22,9 @@ div ul li a {
   color: inherit;
   text-decoration: none;
 }
+
+.selected {
+  background-color: #EDC023;
+  color: #222;
+  border-color: #222;
+}

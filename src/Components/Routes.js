@@ -5,6 +5,11 @@ import Library from './Library';
 import Search from './Search';
 import './RentalForm.css';
 
+const getPath = () => {
+  let pathName = window.location.pathname;
+  return pathName;
+}
+
 const Routes = (props) => (
 	<Router>
 		<div>
@@ -12,13 +17,13 @@ const Routes = (props) => (
 				<li>
 					<Link to="/">Home</Link>
 				</li>
-				<li>
+				<li className={getPath()==='/search'?'selected':''}>
 					<Link to="/search">Search</Link>
 				</li>
-				<li>
+				<li className={getPath()==='/library'?'selected':''}>
 					<Link to="/library">Library</Link>
 				</li>
-				<li>
+				<li className={getPath()==='/customers'?'selected':''}>
 					<Link to="/customers">Customers</Link>
 				</li>
 			</ul>

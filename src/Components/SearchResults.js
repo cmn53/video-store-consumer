@@ -32,7 +32,7 @@ class SearchResults extends Component {
 			/>
 		});
     return (
-			<div>
+			<div className="list customers">
 				{searchMovies}
 			</div>
     );

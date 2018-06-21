@@ -16,3 +16,8 @@
   padding: 1vw;
   margin: 1vw;
 }
+
+span {
+  font-weight: 100;
+  font-style: italic;
+}

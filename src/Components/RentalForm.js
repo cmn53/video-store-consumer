@@ -52,10 +52,10 @@ class RentalForm extends Component {
 		return (
 			<div className="actions">
 				<div>
-					Customer: {this.props.customer.name}
+					Customer: {this.props.customer.name?this.props.customer.name:<span>click customer to select</span>}
 				</div>
 				<div>
-					Movie: {this.props.movie.title}
+					Movie: {this.props.movie.title?this.props.movie.title:<span>click movie to select</span>}
 				</div>
 				<button type="button" onClick={this.onCheckOut}>
 					Check Out Movie
