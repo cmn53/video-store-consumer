@@ -8,7 +8,8 @@ class Library extends Component {
 
 	static propTypes = {
 		onClickCallback: PropTypes.func,
-    updateStatusCallback: PropTypes.func
+    updateStatusCallback: PropTypes.func,
+		movie: PropTypes.object
 	}
   constructor(){
     super();
@@ -40,6 +41,7 @@ class Library extends Component {
 				movieData={movie}
 				key={index}
 				onClickCallback={this.props.onClickCallback}
+				selectedMovie={this.props.movie}
 				/>
     })
     return (

@@ -54,6 +54,8 @@ class App extends Component {
 					clearRentalCallback={this.clearRental}
 				/>
 				<Routes
+					customer={this.state.customer}
+					movie={this.state.movie}
 					onClickCallback={this.updateMovie}
 					onClickCustomer={this.updateCustomer}
 					updateStatusCallback={this.updateStatus}
