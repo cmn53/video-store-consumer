@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import flick from './flick.svg';
+import popcorn from './popcorn.svg';
+import soda from './soda.svg';
 import './App.css';
 
 import Routes from './Components/Routes';
@@ -36,33 +38,37 @@ class App extends Component {
 		this.setState({customer: {}, movie: {}});
 	}
 
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={flick} className="App-logo" alt="logo" />
-        </header>
+	render() {
+		return (
+			<div className="App">
+				<header className="App-header">
+					<img src={soda} className="App-logo" alt="logo" />
+					<img src={popcorn} className="App-logo" alt="logo" />
+					<img src={flick} className="App-logo" alt="logo" />
+					<img src={popcorn} className="App-logo" alt="logo" />
+					<img src={soda} className="App-logo" alt="logo" />
+				</header>
 
 				<Status
 					message={this.state.status.message}
 					type={this.state.status.type}
-				/>
+					/>
 				<RentalForm
 					customer={this.state.customer}
 					movie={this.state.movie}
 					updateStatusCallback={this.updateStatus}
 					clearRentalCallback={this.clearRental}
-				/>
+					/>
 				<Routes
 					customer={this.state.customer}
 					movie={this.state.movie}
 					onClickCallback={this.updateMovie}
 					onClickCustomer={this.updateCustomer}
 					updateStatusCallback={this.updateStatus}
-				/>
-      </div>
-    );
-  }
+					/>
+			</div>
+		);
+	}
 }
 
 export default App;

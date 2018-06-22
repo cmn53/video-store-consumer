@@ -6,7 +6,8 @@ import Customer from './Customer';
 class Customers extends Component {
   static propTypes = {
     onClickCustomer: PropTypes.func,
-    updateStatusCallback: PropTypes.func
+    updateStatusCallback: PropTypes.func,
+		customer: PropTypes.object
   }
 
   constructor(){
@@ -34,7 +35,12 @@ class Customers extends Component {
 
   render() {
     const customers = this.state.customers.map((customer, index) => {
-      return <Customer customerData={customer} key={index} onClickCallback={this.props.onClickCustomer}/>
+      return <Customer
+				customerData={customer}
+				key={index}
+				onClickCallback={this.props.onClickCustomer}
+				selectedCustomer={this.props.customer}
+				/>
     })
     return (
       <div className="list customers">

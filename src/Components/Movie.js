@@ -14,7 +14,7 @@ class Movie extends Component {
 	}
 
 	getClass = () => {
-		if (this.props.selectedMovie.id === this.props.movieData.id) {
+		if (this.props.movieData.id && this.props.selectedMovie.id === this.props.movieData.id) {
 			return "selected-movie";
 		}
 	}
