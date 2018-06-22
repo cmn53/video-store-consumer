@@ -36,7 +36,7 @@ class SearchForm extends Component {
 					value={this.state.query}
 					onChange={this.onInputChange}
 					/>
-				<input type="submit" value="Search"/>
+				<input type="submit" className="button" value="Search"/>
       </form>
     );
   }

@@ -11,7 +11,7 @@ class Status extends Component {
   render() {
     return (
       <div className={`status ${this.props.type}`}>
-        <h2>{this.props.message}</h2>
+        <h3>{this.props.message}</h3>
       </div>
     );
   }
